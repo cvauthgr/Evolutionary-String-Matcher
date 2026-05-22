@@ -50,10 +50,12 @@ Evolutionary algorithms
 
 ## Build
 
-Compile using a modern C++ compiler.
+Compile using a modern C++ compiler( all files , geneticAlgorithm.cpp and RandomGeneration.h must be located in the same file ).
 
 ```bash
-g++ -std=c++20 main.cpp -O2
+cd FolderLocation
+g++ -std=c++23 -g -o executableName geneticAlgorithm.cpp
+./executableName
 ```
 
 ## License
