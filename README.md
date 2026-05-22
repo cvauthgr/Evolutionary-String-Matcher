@@ -1,6 +1,6 @@
 # Evolutionary String Matcher
 
-Evolutionary String Matcher is a genetic algorithm written in C++ that evolves random ASCII strings into a user defined target through simulated evolution.
+Evolutionary String Matcher is a genetic algorithm written in C++23 that evolves random ASCII strings into a user defined target through simulated evolution.
 
 The program creates populations of random strings and improves them generation after generation using selection, crossover, and mutation until the target is discovered.
 
