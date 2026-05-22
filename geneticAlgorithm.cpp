@@ -3,35 +3,9 @@
 #include <algorithm>
 #include <random>
 
+#include "RandomGeneration.h"
+
 using stringPair = std::pair<std::string,std::string> ;
-
-namespace random
-{
-
-inline std::mt19937 generate()
-{
-    thread_local std::random_device rd ; //thread_local so each thread get a different seed
-    
-    return std::mt19937 ( rd() ) ;
-}
-
-inline thread_local std::mt19937  mt { generate() } ; //Can be called from any file ( stand-alone instance ) , thread local for the same reason
-//otherwise all threads use the same random value at each respective simualation , mt19937 to avoid repetitiond in random number generations
-
-template < typename T >
-T getReal(T min , T max)
-{
-    return std::uniform_real_distribution<T>{ min , max }(mt) ;
-}
-
-
-int getInt( int min , int max)
-{
-    return std::uniform_int_distribution{ min , max }(mt) ;
-}
-
-
-}
 
 std::string assessTarget( ) //Get the target
 {
@@ -242,19 +216,6 @@ stringPair doublePointCrossover( const std::string& parent1 , const std::string&
     offsprings = { child1 , child2 } ;
 
     return offsprings ;
-}
-std::pair<int,int> getUniqueRandomIntegers( const int lowerBound , const int maximumBound ) //  Works as intended
-{
-    Reroll :
-    int value1 = random::getInt( lowerBound , maximumBound ) ;
-    int value2 = random::getInt( lowerBound , maximumBound ) ;
-
-    if( value1 != value2 )
-        return std::make_pair( value1 , value2 ) ;
-    else
-        goto Reroll ;
-
-    return std::make_pair( value1 , value2 ) ;
 }
 std::vector< stringPair > getOffsprings( std::vector<std::string>& parents )
 {
