@@ -48,7 +48,7 @@ Over time the population slowly converges toward the target.
 
 ## Technologies
 
-C++20  
+C++23 
 STL  
 Evolutionary algorithms  
 
